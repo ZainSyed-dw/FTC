@@ -9,11 +9,11 @@ import com.qualcomm.robotcore.util.Range;
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Run Movement Test")
 public class runMovementTest extends LinearOpMode {
     // Constants
-    private static final double INTAKE_POWER = 0.8;
+    private static final double INTAKE_POWER = 1.0;
     private static final double FLYWHEEL_POWER = 0.7;
     private static final double DRIVE_SPEED = 0.6;
     private static final double TICKS_PER_REV = 28.0; // HD Hex 20:1 motor
-    private static final double WHEEL_DIAMETER_INCHES = 4.0; // Adjust based on your wheel
+    private static final double WHEEL_DIAMETER_INCHES = 3.38583; // Adjust based on your wheel
     private static final double TICKS_PER_INCH = TICKS_PER_REV / (WHEEL_DIAMETER_INCHES * Math.PI);
     
     // Motors

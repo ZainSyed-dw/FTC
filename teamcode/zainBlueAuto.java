@@ -16,7 +16,9 @@ import java.util.List;
 public class zainBlueAuto extends LinearOpMode {
     // Hardware
     private DcMotorEx leftFront, rightFront, leftBack, rightBack;
-    private DcMotorEx flywheel, intake;
+    private DcMotorEx flywheel;
+
+    private DcMotor intake  ;
 
     // AprilTag variables
     private AprilTagProcessor aprilTag;

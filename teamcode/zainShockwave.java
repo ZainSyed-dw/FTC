@@ -20,7 +20,7 @@ import com.qualcomm.robotcore.util.Range;
 public class zainShockwave extends OpMode {
 
     // Hardware variables
-    private DcMotor leftFront, rightFront, leftBack, rightBack;
+    private DcMotorEx leftFront, rightFront, leftBack, rightBack;
     private DcMotorEx flywheel;
     private DcMotor intake;
    // private Servo trapdoor;
@@ -32,15 +32,26 @@ public class zainShockwave extends OpMode {
     @Override
     public void init() {
         // Initialize motors
-        leftFront = hardwareMap.get(DcMotor.class, "lf");
-        rightFront = hardwareMap.get(DcMotor.class, "rf");
-        leftBack = hardwareMap.get(DcMotor.class, "lb");
-        rightBack = hardwareMap.get(DcMotor.class, "rb");
+        leftFront = hardwareMap.get(DcMotorEx.class, "lf");
+        rightFront = hardwareMap.get(DcMotorEx.class, "rf");
+        leftBack = hardwareMap.get(DcMotorEx.class, "lb");
+        rightBack = hardwareMap.get(DcMotorEx.class, "rb");
 
         flywheel = hardwareMap.get(DcMotorEx.class, "flywheel");
 
-        // Initialize the odometry
-        odometry = new PinpointOdometry(); // Create an instance of PinpointOdometry
+        // Initialize the odometry with hardware map and configuration
+        // Update these values based on your robot's configuration:
+        // - Encoder names in the hardware map
+        // - Track width (distance between left and right wheels in inches)
+        // - Horizontal offset (distance from center to horizontal wheel in inches)
+        odometry = new PinpointOdometry(
+            hardwareMap,           // Hardware map from the OpMode
+            "left_encoder",        // Name of left encoder in config
+            "right_encoder",       // Name of right encoder in config
+            "horizontal_encoder",  // Name of horizontal encoder in config
+            15.0,                  // Track width in inches (adjust based on your robot)
+            6.0                    // Forward offset in inches (adjust based on your robot)
+        );
 
         intake = hardwareMap.get(DcMotor.class, "intake");
        // trapdoor = hardwareMap.get(Servo.class, "trapdoor");

@@ -11,7 +11,7 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
 
 import java.util.List;
 
-@Autonomous(name = "Blue AprilTag Auto", group = "Competition")
+@Autonomous(name = "Blue AprilTag Auto", group = "ZZZ")
 public class BlueAprilTagAuto extends LinearOpMode {
     // Hardware
     private DcMotorEx leftFront, rightFront, leftBack, rightBack;
